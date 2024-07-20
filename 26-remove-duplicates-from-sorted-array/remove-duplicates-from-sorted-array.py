@@ -5,6 +5,8 @@ class Solution(object):
         :rtype: int
         """
         count = 0;
+        if len(nums)==0:
+            return 0;
         for i in range(1, len(nums)):
             if nums[i]!=nums[count]:
                 count = count +1;
