@@ -4,16 +4,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        count = 0;
-        if len(nums)==0:
-            return 0;
-        for i in range(1, len(nums)):
-            if nums[i]!=nums[count]:
-                count = count +1;
-                nums[count] = nums[i];
-
-
-        return count+1;        
+        j = 0
+        unique = True;
+        for i in range(1,len(nums)):
+            if nums[i] > nums[i-1]:
+                unique = True;
+            if nums[i] == nums[i-1]:
+                unique = False;
+            if unique:
+                nums[j+1] = nums[i];
+                j = j+1;
+        return j+1;           
                 
                 
                 
