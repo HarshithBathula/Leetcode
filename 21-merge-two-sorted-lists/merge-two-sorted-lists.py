@@ -10,13 +10,11 @@ class Solution(object):
         :type list2: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
-        
+        if list1 is None:
+            return list2
+        if list2 is None:
+            return list1      
         dummy = node = ListNode()
-        if list1:
-            node.next = list1
-        else:
-            node.next = list2
-        
         while list1 and list2:
             if list1.val < list2.val:
                 node.next = list1
@@ -27,7 +25,6 @@ class Solution(object):
             node = node.next
 
         node.next = list1 or list2
-
         return dummy.next  
 
         
